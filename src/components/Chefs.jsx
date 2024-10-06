@@ -6,7 +6,7 @@ function Chefs() {
   const [chefs, setChefs] = useState([]);
   const navigate=useNavigate();
   useEffect(() => {
-    fetch("http://localhost:3000/api/chefs/")
+    fetch("https://backend-u6ed.onrender.com/api/chefs/")
       .then((response) => response.json())
       .then((data) => {
         setChefs(data.slice(0, 3)); // Limit to 3 chefs for the homepage

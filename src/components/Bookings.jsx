@@ -23,7 +23,7 @@ function Bookings() {
 
 
     const userId = JSON.parse(localStorage.getItem("user"));
-    fetch(`http://localhost:3000/api/booking/user/${userId._id}`)
+    fetch(`https://backend-u6ed.onrender.com/api/booking/user/${userId._id}`)
       .then((response) => response.json())
       .then((data) => setBookings(data))
       .catch((error) => console.error("Error fetching data:", error));

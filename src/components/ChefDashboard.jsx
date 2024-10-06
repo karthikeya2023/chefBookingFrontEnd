@@ -28,7 +28,7 @@ const ChefDashboard = () => {
   }, []);
 
   const fetchProposals = (chefId) => {
-    fetch(`http://localhost:3000/api/chefs/${chefId}/proposal`)
+    fetch(`https://backend-u6ed.onrender.com/api/chefs/${chefId}/proposal`)
       .then((response) => response.json())
       .then((data) => setProposals(data))
       .catch((error) => console.error("Error fetching proposals:", error));
@@ -55,7 +55,7 @@ const ChefDashboard = () => {
   };
 
   const handleSave = () => {
-    fetch(`http://localhost:3000/api/chefs/${chefId}/proposal`, {
+    fetch(`https://backend-u6ed.onrender.com/api/chefs/${chefId}/proposal`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -89,7 +89,7 @@ const ChefDashboard = () => {
   };
 
   const handleDelete = (proposalId, index) => {
-    fetch(`http://localhost:3000/api/chefs/${chefId}/proposals/${proposalId}`, {
+    fetch(`https://backend-u6ed.onrender.com/api/chefs/${chefId}/proposals/${proposalId}`, {
       method: "DELETE",
     })
       .then((response) => {

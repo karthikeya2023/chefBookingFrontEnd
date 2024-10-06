@@ -15,7 +15,7 @@ function ViewRecipe() {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/recipe/${recipeId}`);
+        const response = await fetch(`https://backend-u6ed.onrender.com/api/recipe/${recipeId}`);
         if (!response.ok) throw new Error("Failed to fetch recipe");
         const data = await response.json();
         setRecipe(data);
@@ -30,7 +30,7 @@ function ViewRecipe() {
 
   const fetchReviews = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/recipe/${recipeId}/reviews`);
+      const response = await fetch(`https://backend-u6ed.onrender.com/api/recipe/${recipeId}/reviews`);
       if (!response.ok) throw new Error("Failed to fetch reviews");
       const data = await response.json();
       setReviews(data);
@@ -45,7 +45,7 @@ function ViewRecipe() {
 
   const handleReviewSubmit = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/recipe/${recipeId}/review`, {
+      const response = await fetch(`https://backend-u6ed.onrender.com/api/recipe/${recipeId}/review`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ review_text: reviewText, userId: userId._id }),

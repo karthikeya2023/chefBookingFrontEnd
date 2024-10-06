@@ -10,7 +10,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchChefs = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/chefs/");
+        const response = await axios.get("https://backend-u6ed.onrender.com/api/chefs/");
         setChefs(response.data);
       } catch (error) {
         console.error("Error fetching chefs:", error);
@@ -27,7 +27,7 @@ const Admin = () => {
 
   const fetchRecipes = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/recipe/");
+      const response = await fetch("https://backend-u6ed.onrender.com/api/recipe/");
       if (!response.ok) {
         throw new Error("Failed to fetch recipes");
       }
@@ -43,7 +43,7 @@ const Admin = () => {
       const chefID = row._id; // Assuming the chef ID is stored in a property named 'id' in your 'row' object
 
       // Make PUT request to approve chef
-      await axios.post(`http://localhost:3000/api/chefs/approve/${chefID}`, {
+      await axios.post(`https://backend-u6ed.onrender.com/api/chefs/approve/${chefID}`, {
         // approved: true,
       });
 
@@ -52,7 +52,7 @@ const Admin = () => {
 
       // Fetch updated chefs list after approval
       const updatedChefsResponse = await axios.get(
-        "http://localhost:3000/api/chefs/"
+        "https://backend-u6ed.onrender.com/api/chefs/"
       );
       setChefs(updatedChefsResponse.data);
     } catch (error) {
@@ -63,14 +63,14 @@ const Admin = () => {
   const handleDelete = async (row) => {
     try {
       // Make DELETE request to delete recipe
-      await axios.delete(`http://localhost:3000/api/recipe/${row._id}`);
+      await axios.delete(`https://backend-u6ed.onrender.com/api/recipe/${row._id}`);
 
       // Log deletion
       console.log("Deleting recipe:", row.recipeTitle);
 
       // Fetch updated recipes list after deletion
       const updatedRecipesResponse = await fetch(
-        "http://localhost:3000/api/recipe/"
+        "https://backend-u6ed.onrender.com/api/recipe/"
       );
       if (!updatedRecipesResponse.ok) {
         throw new Error("Failed to fetch updated recipes after deletion");
