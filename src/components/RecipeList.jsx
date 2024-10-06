@@ -10,9 +10,10 @@ function RecipeList() {
     fetchRecipes();
   }, []);
 
+  
   const fetchRecipes = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/recipe/");
+      const response = await fetch("https://backend-u6ed.onrender.com/api/recipe/");
       if (!response.ok) {
         throw new Error("Failed to fetch recipes");
       }
