@@ -48,7 +48,7 @@ function RecipeList() {
               </div>
               <button
                 className="view-recipe-btn"
-                onClick={() => navigate(`/view/recipe/${recipe._id}`)}
+                onClick={() => navigate(`https://backend-u6ed.onrender.com/view/recipe/${recipe._id}`)}
               >
                 VIEW RECIPE
               </button>
