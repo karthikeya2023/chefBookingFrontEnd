@@ -83,7 +83,7 @@ function Login() {
               />
             </div>
             <div className="signup-link">
-              <Link to="https://backend-u6ed.onrender.com/signup">Don't you have an account click here to signup</Link><br></br>
+              <Link to="/signup">Don't you have an account click here to signup</Link><br></br>
              
             </div>
             <button type="submit" className="submit-btn">Submit</button>
