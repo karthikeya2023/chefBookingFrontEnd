@@ -22,13 +22,14 @@ import Healthcarework from "../pages/Healthcarework";
 function Routing() {
   const user = JSON.parse(localStorage.getItem("user"));
   const role = user ? user.role : null;
+  const url = "https://backend-u6ed.onrender.com"
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Home />} />
+        <Route path="url/signup" element={<Signup />} />
+        <Route path="url/login" element={<Login />} />
+        <Route path="url/" element={<Home />} />
         <Route path="/aboutus" element={<AboutUsPage />} />
 
         <Route path="/chef/register" element={<ChefRegisteration />} />
