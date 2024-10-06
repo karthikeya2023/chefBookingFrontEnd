@@ -138,7 +138,7 @@ function Recipes() {
         </div>
       
       )}
-       <a href="https://backend-u6ed.onrender.com/recipes" className="all-recipes-link">All Recipes →</a> 
+       <a href="https://backend-u6ed.onrender.com/api/recipes" className="all-recipes-link">All Recipes →</a> 
     </div>
   );
 }

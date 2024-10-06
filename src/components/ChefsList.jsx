@@ -188,7 +188,7 @@ function ChefsList() {
                   
                   <button
                     className="btn btn-primary"
-                    onClick={() => navigate(`/view/chef/${chef._id}`)}
+                    onClick={() => navigate(`https://backend-u6ed.onrender.com/view/chef/${chef._id}`)}
                   >
                     View Details
                   </button>
