@@ -149,7 +149,7 @@ const ViewChef = () => {
   const fetchChefData = async () => {
     try {
       const response = await fetch(
-        `https://backend-u6ed.onrender.com/api/chefs/view/${id}`
+        `http://localhost:3000/api/chefs/view/${id}`
       );
       if (response.ok) {
         const data = await response.json();
@@ -165,7 +165,7 @@ const ViewChef = () => {
   const fetchReviews = async () => {
     try {
       const response = await fetch(
-        `https://backend-u6ed.onrender.com/api/chefs/${id}/reviews`
+        `http://localhost:3000/api/chefs/${id}/reviews`
       );
       if (response.ok) {
         const data = await response.json();
@@ -192,7 +192,7 @@ const ViewChef = () => {
     e.preventDefault();
     console.log("Submitting review:", newReview);
     try {
-      const response = await fetch(`https://backend-u6ed.onrender.com/api/chefs/${id}/reviews`, {
+      const response = await fetch(`http://localhost:3000/api/chefs/${id}/reviews`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -202,7 +202,7 @@ function ChefSignup() {
     };
 
     try {
-      const response = await fetch("https://backend-u6ed.onrender.com/api/chefs/add", {
+      const response = await fetch("http://localhost:3000/api/chefs/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -34,7 +34,7 @@ function BookChef() {
 
   // Fetch chef data from the API
   useEffect(() => {
-    fetch("https://backend-u6ed.onrender.com/api/chefs/")
+    fetch("http://localhost:3000/api/chefs/")
       .then((response) => response.json())
       .then((data) => {
         // Update chefs state with data from the API
@@ -55,7 +55,7 @@ function BookChef() {
     };
 
     // Send booking request to the API
-    fetch("https://backend-u6ed.onrender.com/api/booking/bookachef", {
+    fetch("http://localhost:3000/api/booking/bookachef", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

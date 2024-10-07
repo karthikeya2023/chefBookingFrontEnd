@@ -17,7 +17,7 @@ function EditRecipe() {
 
   useEffect(() => {
     // Fetch recipe data from API
-    fetch(`https://backend-u6ed.onrender.com/api/recipe/${recipeId}`)
+    fetch(`http://localhost:3000/api/recipe/${recipeId}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Network response was not ok");
@@ -73,7 +73,7 @@ function EditRecipe() {
     };
 
     // Send a POST request to the API endpoint
-    fetch(`https://backend-u6ed.onrender.com/api/recipe/edit/${recipeId}`, {
+    fetch(`http://localhost:3000/api/recipe/edit/${recipeId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

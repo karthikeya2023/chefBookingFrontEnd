@@ -143,7 +143,7 @@ function Signup() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://backend-u6ed.onrender.com/api/auth/signup",
+        "http://localhost:3000/api/auth/signup",
         formData
       );
       console.log(response.data);

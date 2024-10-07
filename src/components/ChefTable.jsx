@@ -19,7 +19,7 @@ const ChefTable = () => {
   const fetchRecipes = async () => {
     try {
       const response = await fetch(
-        `https://backend-u6ed.onrender.com/api/recipe/recipes/chef/${chefId}`
+        `http://localhost:3000/api/recipe/recipes/chef/${chefId}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch recipes");
@@ -33,7 +33,7 @@ const ChefTable = () => {
   const fetchBookings = async () => {
     try {
       const response = await fetch(
-        `https://backend-u6ed.onrender.com/api/booking/chef/${storedChefId.chefID}`
+        `http://localhost:3000/api/booking/chef/${storedChefId.chefID}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch bookings");
@@ -47,14 +47,14 @@ const ChefTable = () => {
   const handleDelete = async (row) => {
     try {
       // Make DELETE request to delete recipe
-      await axios.delete(`https://backend-u6ed.onrender.com/api/recipe/${row._id}`);
+      await axios.delete(`http://localhost:3000/api/recipe/${row._id}`);
 
       // Log deletion
       console.log("Deleting recipe:", row.recipeTitle);
 
       // Fetch updated recipes list after deletion
       const updatedRecipesResponse = await fetch(
-        "https://backend-u6ed.onrender.com/api/recipe/"
+        "http://localhost:3000/api/recipe/"
       );
       if (!updatedRecipesResponse.ok) {
         throw new Error("Failed to fetch updated recipes after deletion");
@@ -78,7 +78,7 @@ const ChefTable = () => {
       const chefID = row._id; // Assuming the chef ID is stored in a property named 'id' in your 'row' object
 
       // Make PUT request to approve chef
-      await axios.post(`https://backend-u6ed.onrender.com/api/booking/approve/${chefID}`, {
+      await axios.post(`http://localhost:3000/api/booking/approve/${chefID}`, {
         // approved: true,
       });
 

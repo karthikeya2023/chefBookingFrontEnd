@@ -11,7 +11,7 @@ const ViewBooking = () => {
     try {
       // Make API call to fetch chef data
       const response = await fetch(
-        `https://backend-u6ed.onrender.com/api/booking/bookings/${id}`
+        `http://localhost:3000/api/booking/bookings/${id}`
       );
       const data = await response.json();
 

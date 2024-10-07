@@ -33,7 +33,7 @@ function ChefsList() {
 
   const fetchAbilities = async () => {
     try {
-      const response = await fetch("https://backend-u6ed.onrender.com/api/chefs/abilites");
+      const response = await fetch("http://localhost:3000/api/chefs/abilites");
       if (!response.ok) {
         throw new Error("Failed to fetch abilities");
       }
@@ -46,7 +46,7 @@ function ChefsList() {
 
   const fetchChefs = async () => {
     try {
-      const response = await fetch("https://backend-u6ed.onrender.com/api/chefs/");
+      const response = await fetch("http://localhost:3000/api/chefs/");
       if (!response.ok) {
         throw new Error("Failed to fetch chefs");
       }
@@ -188,7 +188,7 @@ function ChefsList() {
                   
                   <button
                     className="btn btn-primary"
-                    onClick={() => navigate(`https://backend-u6ed.onrender.com/view/chef/${chef._id}`)}
+                    onClick={() => navigate(`/view/chef/${chef._id}`)}
                   >
                     View Details
                   </button>
