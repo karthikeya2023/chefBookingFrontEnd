@@ -8,7 +8,7 @@
 //   const fetchChefData = async () => {
 //     try {
 //       const response = await fetch(
-//         `http://localhost:3000/api/chefs/view/${id}`
+//         `https://backend-u6ed.onrender.com/api/chefs/view/${id}`
 //       );
 //       const data = await response.json();
 //       setChef(data);
@@ -92,17 +92,16 @@
 //                 )}
 //               </div>
 //             </div>
-            
+
 //           )}
 //         </div>
 //       </div>
 //     </div>
-    
+
 //   );
 // };
 
 // export default ViewChef;
-
 
 // <div className="d-flex flex-column gap-3">
 // <label htmlFor="" className="fs-5 fw-bold text-uppercase">
@@ -128,7 +127,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import '../chefView.css';
+import "../chefView.css";
 
 const ViewChef = () => {
   const [chef, setChef] = useState(null);
@@ -139,17 +138,17 @@ const ViewChef = () => {
   const isLoggedIn = !!localStorage.getItem("token");
 
   const handleBooking = () => {
-  if (isLoggedIn) {
-    navigate("/book/chef");
-  } else {
-    navigate("/login");
-  }
+    if (isLoggedIn) {
+      navigate("/book/chef");
+    } else {
+      navigate("/login");
+    }
   };
 
   const fetchChefData = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/chefs/view/${id}`
+        `https://backend-u6ed.onrender.com/api/chefs/view/${id}`
       );
       if (response.ok) {
         const data = await response.json();
@@ -165,7 +164,7 @@ const ViewChef = () => {
   const fetchReviews = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3000/api/chefs/${id}/reviews`
+        `https://backend-u6ed.onrender.com/api/chefs/${id}/reviews`
       );
       if (response.ok) {
         const data = await response.json();
@@ -192,14 +191,17 @@ const ViewChef = () => {
     e.preventDefault();
     console.log("Submitting review:", newReview);
     try {
-      const response = await fetch(`http://localhost:3000/api/chefs/${id}/reviews`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ comment: newReview }),
-      });
-      
+      const response = await fetch(
+        `https://backend-u6ed.onrender.com/api/chefs/${id}/reviews`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ comment: newReview }),
+        }
+      );
+
       if (response.ok) {
         const data = await response.json();
         console.log("Review submitted successfully:", data);
@@ -231,7 +233,7 @@ const ViewChef = () => {
                 style={{ width: "150px", height: "150px", objectFit: "cover" }}
                 onError={(e) => {
                   e.target.onerror = null;
-                  e.target.src = 'https://via.placeholder.com/150';
+                  e.target.src = "https://via.placeholder.com/150";
                 }}
               />
               <h2>{chef.name}</h2>
@@ -245,15 +247,22 @@ const ViewChef = () => {
             </div>
             <div className="col-md-8">
               <h3>Chef Details</h3>
-              <p><strong>Email:</strong> {chef.email}</p>
-              <p><strong>Mobile:</strong> {chef.mobile}</p>
+              <p>
+                <strong>Email:</strong> {chef.email}
+              </p>
+              <p>
+                <strong>Mobile:</strong> {chef.mobile}
+              </p>
               <p>
                 <strong>Abilities:</strong>{" "}
                 {chef.abilities && chef.abilities.length > 0
                   ? chef.abilities.join(", ")
                   : "No abilities listed"}
               </p>
-              <p><strong>Experience:</strong> {chef.experience || "Not specified"}</p>
+              <p>
+                <strong>Experience:</strong>{" "}
+                {chef.experience || "Not specified"}
+              </p>
             </div>
           </div>
 
@@ -272,7 +281,8 @@ const ViewChef = () => {
                       style={{ height: "200px", objectFit: "cover" }}
                       onError={(e) => {
                         e.target.onerror = null;
-                        e.target.src = 'https://via.placeholder.com/200x200?text=No+Image';
+                        e.target.src =
+                          "https://via.placeholder.com/200x200?text=No+Image";
                       }}
                     />
                     <div className="card-body">
@@ -298,25 +308,29 @@ const ViewChef = () => {
                   <h5>Pricing:</h5>
                   <ul>
                     <li>Chef at Home: ${proposal.pricing.chef_at_home}</li>
-                    <li>Chef at Small Event: ${proposal.pricing.chef_at_small_event}</li>
-                    <li>Chef at Big Event: ${proposal.pricing.chef_at_big_event}</li>
+                    <li>
+                      Chef at Small Event: $
+                      {proposal.pricing.chef_at_small_event}
+                    </li>
+                    <li>
+                      Chef at Big Event: ${proposal.pricing.chef_at_big_event}
+                    </li>
                   </ul>
                   <h5>Availability:</h5>
-                  
+
                   {proposal.availability && proposal.availability.length > 0 ? (
                     <ul>
                       {proposal.availability.map((avail, idx) => (
                         <li key={idx}>
                           {new Date(avail.start_date).toLocaleDateString()} to{" "}
-                          {new Date(avail.end_date).toLocaleDateString()}<br></br>
+                          {new Date(avail.end_date).toLocaleDateString()}
+                          <br></br>
                           {avail.location && (
                             <span> Location: {avail.location}</span>
                           )}
                         </li>
-                       
                       ))}
                     </ul>
-                    
                   ) : (
                     <p>No availability listed</p>
                   )}
@@ -328,12 +342,10 @@ const ViewChef = () => {
           )}
 
           <hr />
-          <button 
-            className="book-now-btn" 
-            onClick={handleBooking}>
+          <button className="book-now-btn" onClick={handleBooking}>
             Book Now
           </button>
-         </div>
+        </div>
       </div>
     </div>
   );

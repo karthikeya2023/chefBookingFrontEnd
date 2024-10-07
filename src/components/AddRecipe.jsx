@@ -52,7 +52,7 @@ function AddRecipe() {
     };
 
     // Send a POST request to the API endpoint
-    fetch(`http://localhost:3000/api/recipe/add/${userData._id}`, {
+    fetch(`https://backend-u6ed.onrender.com/api/recipe/add/${userData._id}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -164,7 +164,7 @@ function AddRecipe() {
             </div>
             <div className="mb-3">
               <label htmlFor="healthyFor" className="form-label">
-                  Healthy For
+                Healthy For
               </label>
               <input
                 type="text"
@@ -172,10 +172,9 @@ function AddRecipe() {
                 name="healthyFor"
                 value={healthyFor}
                 onChange={(e) => setHealthyFor(e.target.value)}
-                />
+              />
             </div>
-                            
-            
+
             <div className="mb-3">
               <label className="form-label">Steps</label>
               {steps.map((step, index) => (

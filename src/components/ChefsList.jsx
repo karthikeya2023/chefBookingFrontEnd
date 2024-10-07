@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import '../chefList.css'
+import "../chefList.css";
 
 function ChefsList() {
   const [chefs, setChefs] = useState([]);
@@ -33,7 +33,9 @@ function ChefsList() {
 
   const fetchAbilities = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/chefs/abilites");
+      const response = await fetch(
+        "https://backend-u6ed.onrender.com/api/chefs/abilites"
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch abilities");
       }
@@ -46,17 +48,19 @@ function ChefsList() {
 
   const fetchChefs = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/chefs/");
+      const response = await fetch(
+        "https://backend-u6ed.onrender.com/api/chefs/"
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch chefs");
       }
       const data = await response.json();
       setChefs(data);
-      
+
       // Extract unique locations from chef proposals
-      const allLocations = data.flatMap(chef => 
-        chef.proposals.flatMap(proposal => 
-          proposal.availability.map(avail => avail.location)
+      const allLocations = data.flatMap((chef) =>
+        chef.proposals.flatMap((proposal) =>
+          proposal.availability.map((avail) => avail.location)
         )
       );
       const uniqueLocations = [...new Set(allLocations)].filter(Boolean);
@@ -70,13 +74,17 @@ function ChefsList() {
     let filtered = [...chefs];
 
     if (selectedAbility) {
-      filtered = filtered.filter(chef => chef.abilities.includes(selectedAbility));
+      filtered = filtered.filter((chef) =>
+        chef.abilities.includes(selectedAbility)
+      );
     }
 
     if (selectedLocation) {
-      filtered = filtered.filter(chef => 
-        chef.proposals.some(proposal => 
-          proposal.availability.some(avail => avail.location === selectedLocation)
+      filtered = filtered.filter((chef) =>
+        chef.proposals.some((proposal) =>
+          proposal.availability.some(
+            (avail) => avail.location === selectedLocation
+          )
         )
       );
     }
@@ -133,7 +141,9 @@ function ChefsList() {
             >
               <option value="">Filter by Ability</option>
               {abilities.map((ability, index) => (
-                <option key={index} value={ability}>{ability}</option>
+                <option key={index} value={ability}>
+                  {ability}
+                </option>
               ))}
             </select>
             <select
@@ -143,7 +153,9 @@ function ChefsList() {
             >
               <option value="">Filter by Location</option>
               {locations.map((location, index) => (
-                <option key={index} value={location}>{location}</option>
+                <option key={index} value={location}>
+                  {location}
+                </option>
               ))}
             </select>
             <select
@@ -179,13 +191,19 @@ function ChefsList() {
                     {chef.proposals.map((proposal, index) => (
                       <div key={index} className="pricing-details">
                         <p>Chef at Home: ₹{proposal.pricing.chef_at_home}</p>
-                        <p>Chef at Small Event: ₹{proposal.pricing.chef_at_small_event}</p>
-                        <p>Chef at Big Event: ₹{proposal.pricing.chef_at_big_event}</p>
+                        <p>
+                          Chef at Small Event: ₹
+                          {proposal.pricing.chef_at_small_event}
+                        </p>
+                        <p>
+                          Chef at Big Event: ₹
+                          {proposal.pricing.chef_at_big_event}
+                        </p>
                         <p>{proposal.availability.location}</p>
                       </div>
                     ))}
                   </div>
-                  
+
                   <button
                     className="btn btn-primary"
                     onClick={() => navigate(`/view/chef/${chef._id}`)}

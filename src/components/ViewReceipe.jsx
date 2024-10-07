@@ -15,7 +15,9 @@ function ViewRecipe() {
   useEffect(() => {
     const fetchRecipe = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/recipe/${recipeId}`);
+        const response = await fetch(
+          `https://backend-u6ed.onrender.com/api/recipe/${recipeId}`
+        );
         if (!response.ok) throw new Error("Failed to fetch recipe");
         const data = await response.json();
         setRecipe(data);
@@ -30,7 +32,9 @@ function ViewRecipe() {
 
   const fetchReviews = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/recipe/${recipeId}/reviews`);
+      const response = await fetch(
+        `https://backend-u6ed.onrender.com/api/recipe/${recipeId}/reviews`
+      );
       if (!response.ok) throw new Error("Failed to fetch reviews");
       const data = await response.json();
       setReviews(data);
@@ -45,11 +49,14 @@ function ViewRecipe() {
 
   const handleReviewSubmit = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/api/recipe/${recipeId}/review`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ review_text: reviewText, userId: userId._id }),
-      });
+      const response = await fetch(
+        `https://backend-u6ed.onrender.com/api/recipe/${recipeId}/review`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ review_text: reviewText, userId: userId._id }),
+        }
+      );
       if (!response.ok) throw new Error("Failed to add review");
       setReviewText("");
       fetchReviews();
@@ -64,7 +71,10 @@ function ViewRecipe() {
     <div className="recipe-container">
       <div className="recipe-header">
         <div className="recipe-image">
-          <img src={recipe.imageURL || "https://placehold.co/300"} alt={recipe.recipeTitle} />
+          <img
+            src={recipe.imageURL || "https://placehold.co/300"}
+            alt={recipe.recipeTitle}
+          />
         </div>
         <div className="recipe-details">
           <h2 className="dish-name">Name of the Dish</h2>
@@ -72,11 +82,15 @@ function ViewRecipe() {
           <div className="recipe-info">
             <div className="info-item">
               <p>Serves</p>
-              <div><BsFillPeopleFill /> {recipe.servings}</div>
+              <div>
+                <BsFillPeopleFill /> {recipe.servings}
+              </div>
             </div>
             <div className="info-item">
               <p>Time Taken</p>
-              <div><CiTimer /> {recipe.timeTaken}</div>
+              <div>
+                <CiTimer /> {recipe.timeTaken}
+              </div>
             </div>
             <div className="info-item">
               <p>Healthy For</p>

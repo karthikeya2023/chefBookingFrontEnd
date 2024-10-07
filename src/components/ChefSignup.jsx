@@ -31,7 +31,7 @@
 //     };
 
 //     try {
-//       const response = await fetch("http://localhost:3000/api/chefs/add", {
+//       const response = await fetch("https://backend-u6ed.onrender.com/api/chefs/add", {
 //         method: "POST",
 //         headers: {
 //           "Content-Type": "application/json",
@@ -187,7 +187,10 @@ function ChefSignup() {
   const addDish = () => {
     setFormData((prevData) => ({
       ...prevData,
-      specialistDishes: [...prevData.specialistDishes, { name: "", imageUrl: "" }],
+      specialistDishes: [
+        ...prevData.specialistDishes,
+        { name: "", imageUrl: "" },
+      ],
     }));
   };
 
@@ -202,13 +205,16 @@ function ChefSignup() {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/api/chefs/add", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formDataWithAbilities),
-      });
+      const response = await fetch(
+        "https://backend-u6ed.onrender.com/api/chefs/add",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formDataWithAbilities),
+        }
+      );
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -286,7 +292,9 @@ function ChefSignup() {
           </div>
 
           <div className="form-group">
-            <label htmlFor="abilities">Abilities of Chef (comma separated)</label>
+            <label htmlFor="abilities">
+              Abilities of Chef (comma separated)
+            </label>
             <textarea
               id="abilities"
               name="abilities"
@@ -313,13 +321,17 @@ function ChefSignup() {
                   type="text"
                   placeholder="Dish Name"
                   value={dish.name}
-                  onChange={(e) => handleDishChange(index, 'name', e.target.value)}
+                  onChange={(e) =>
+                    handleDishChange(index, "name", e.target.value)
+                  }
                 />
                 <input
                   type="url"
                   placeholder="Dish Image URL"
                   value={dish.imageUrl}
-                  onChange={(e) => handleDishChange(index, 'imageUrl', e.target.value)}
+                  onChange={(e) =>
+                    handleDishChange(index, "imageUrl", e.target.value)
+                  }
                 />
               </div>
             ))}

@@ -21,9 +21,8 @@ function Bookings() {
   useEffect(() => {
     // Fetch bookings data from API using userId from localStorage
 
-
     const userId = JSON.parse(localStorage.getItem("user"));
-    fetch(`http://localhost:3000/api/booking/user/${userId._id}`)
+    fetch(`https://backend-u6ed.onrender.com/api/booking/user/${userId._id}`)
       .then((response) => response.json())
       .then((data) => setBookings(data))
       .catch((error) => console.error("Error fetching data:", error));
@@ -31,7 +30,6 @@ function Bookings() {
 
   return (
     <>
-    
       <h1 className="text-center py-5">My Bookings</h1>
       <div className="container d-flex gap-5  pb-5 mb-5 ">
         {bookings.map((booking) => (

@@ -19,7 +19,7 @@
 
 //     try {
 //       const response = await axios.post(
-//         "http://localhost:3000/api/auth/signup",
+//         "https://backend-u6ed.onrender.com/api/auth/signup",
 //         formData
 //       );
 //       console.log(response.data); // Assuming your API returns a message upon successful signup
@@ -129,7 +129,7 @@ function Signup() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phoneNumber:"",
+    phoneNumber: "",
     password: "",
     confirmPassword: "",
   });
@@ -143,14 +143,16 @@ function Signup() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/api/auth/signup",
+        "https://backend-u6ed.onrender.com/api/auth/signup",
         formData
       );
       console.log(response.data);
       navigate("/login");
     } catch (error) {
       console.error("Signup error:", error);
-      setError(error.response?.data?.message || "An error occurred during signup");
+      setError(
+        error.response?.data?.message || "An error occurred during signup"
+      );
     }
   };
 
@@ -188,16 +190,16 @@ function Signup() {
               />
             </div>
             <div className="form-group">
-            <label htmlFor="phoneNumber">Mobile</label>
-            <input
-              type="tel"
-              id="phoneNumber"
-              name="phoneNumber"
-              value={formData.phoneNumber}
-              onChange={handleChange}
-              required
-            />
-          </div>
+              <label htmlFor="phoneNumber">Mobile</label>
+              <input
+                type="tel"
+                id="phoneNumber"
+                name="phoneNumber"
+                value={formData.phoneNumber}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
             <div className="form-group">
               <label htmlFor="password">PASSWORD</label>
@@ -222,12 +224,15 @@ function Signup() {
               />
             </div>
             <div className="login-link">
-              <Link to="/login">Do you have an account? Click here to login</Link>
+              <Link to="/login">
+                Do you have an account? Click here to login
+              </Link>
             </div>
-            <button type="submit" className="submit-btn">Submit</button>
+            <button type="submit" className="submit-btn">
+              Submit
+            </button>
           </form>
         </div>
-        
       </div>
     </div>
   );

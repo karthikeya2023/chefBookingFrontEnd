@@ -9,21 +9,19 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-
-
-  
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:3000/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        "https://backend-u6ed.onrender.com/api/auth/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -83,13 +81,16 @@ function Login() {
               />
             </div>
             <div className="signup-link">
-              <Link to="/signup">Don't you have an account click here to signup</Link><br></br>
-             
+              <Link to="/signup">
+                Don't you have an account click here to signup
+              </Link>
+              <br></br>
             </div>
-            <button type="submit" className="submit-btn">Submit</button>
+            <button type="submit" className="submit-btn">
+              Submit
+            </button>
           </form>
         </div>
-        
       </div>
     </div>
   );

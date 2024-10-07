@@ -12,7 +12,7 @@
 
 //   const fetchRecipes = async () => {
 //     try {
-//       const response = await fetch("http://localhost:3000/api/recipe/");
+//       const response = await fetch("https://backend-u6ed.onrender.com/api/recipe/");
 //       if (!response.ok) {
 //         throw new Error("Failed to fetch recipes");
 //       }
@@ -85,7 +85,9 @@ function Recipes() {
 
   const fetchRecipes = async () => {
     try {
-      const response = await fetch("http://localhost:3000/api/recipe/");
+      const response = await fetch(
+        "https://backend-u6ed.onrender.com/api/recipe/"
+      );
       if (!response.ok) {
         throw new Error("Failed to fetch recipes");
       }
@@ -100,14 +102,12 @@ function Recipes() {
 
   return (
     <div className="recipes-container">
-      
       <h1 className="recipes-header">MAKE YOUR FOOD</h1>
-     
+
       {!firstRecipe ? (
         <p className="no-recipes">No recipes found</p>
       ) : (
         <div className="recipe-showcase">
-          
           <div className="recipe-image">
             <img
               src={firstRecipe.imageURL || "https://placehold.co/300"}
@@ -134,11 +134,11 @@ function Recipes() {
               </div>
             </div>
           </div>
-          
         </div>
-      
       )}
-       <a href="/recipes" className="all-recipes-link">All Recipes →</a> 
+      <a href="/recipes" className="all-recipes-link">
+        All Recipes →
+      </a>
     </div>
   );
 }
