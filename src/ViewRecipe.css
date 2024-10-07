@@ -141,4 +141,41 @@
   .add-review button:hover {
     background-color: #0056b3;
   }
+
+/* Media Queries for Responsive Design */
+@media screen and (max-width: 768px) {
+  .recipe-header {
+      flex-direction: column;
+  }
+
+  .recipe-image img {
+      height: auto;
+  }
+
+  .recipe-body {
+      flex-direction: column;
+  }
+
+  .ingredients, .instructions {
+      margin-top: 30px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .dish-name {
+      font-size: 20px;
+  }
+
+  .dish-title {
+      font-size: 22px;
+  }
+
+  .info-item p {
+      font-size: 14px;
+  }
+
+  .info-item div {
+      font-size: 16px;
+  }
+}
   

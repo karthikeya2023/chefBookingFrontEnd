@@ -113,13 +113,54 @@
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
+  .services-heading {
+      font-size: 32px;
+  }
+
+  .services-description {
+      font-size: 16px;
+  }
+
+  .service-card {
+      flex: 1 1 100%;
+      max-width: none;
+  }
+
+  .upcoming-events-heading {
+      font-size: 36px;
+  }
+
   .events-grid {
-    grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 480px) {
+  .services-heading {
+      font-size: 28px;
+  }
+
+  .services-description {
+      font-size: 14px;
+  }
+
+  .service-title {
+      font-size: 20px;
+  }
+
+  .service-description {
+      font-size: 14px;
+  }
+
+  .upcoming-events-heading {
+      font-size: 32px;
+  }
+
   .events-grid {
-    grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
+  }
+
+  .event-title {
+      font-size: 16px;
   }
 }
