@@ -13,7 +13,7 @@ function Login() {
     e.preventDefault();
     try {
       const response = await fetch(
-        "https://backend-u6ed.onrender.com/api/auth/login",
+        "http://localhost:3000/api/auth/login",
         {
           method: "POST",
           headers: {

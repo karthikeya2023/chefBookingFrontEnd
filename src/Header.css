@@ -120,3 +120,94 @@
   height: 2px;
   background-color: #6a0dad;
 }
+.mobile-menu-icon {
+  display: none;
+  color: #6a0dad;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+  .header-content {
+    padding: 8px 15px;
+  }
+
+  .logo-text {
+    font-size: 24px;
+  }
+
+  .logo-image {
+    width: 80px;
+    height: 56px;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: white;
+    flex-direction: column;
+    padding: 20px;
+    transition: 0.3s;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .mobile-menu-icon {
+    display: block;
+  }
+
+  .user-actions {
+    gap: 15px;
+  }
+
+  .login-btn {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-content {
+    padding: 8px 10px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+  }
+
+  .logo-image {
+    width: 60px;
+    height: 42px;
+  }
+
+  .user-photo {
+    width: 40px;
+    height: 40px;
+  }
+
+  .user-initial {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .nav-menu {
+    width: 85%;
+  }
+
+  .user-actions {
+    gap: 10px;
+  }
+
+  .icon {
+    font-size: 18px;
+  }
+}
