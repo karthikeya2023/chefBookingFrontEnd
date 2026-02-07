@@ -1,16 +1,48 @@
-.header{
-    background-color:beige;
-    text-align: center;
-    border-bottom: none;
-    
+.header {
+  background: linear-gradient(135deg, #f5f0e6, #fdfdfd);
+  text-align: center;
+  padding: 50px 20px;
+  animation: fadeDown 0.8s ease;
 }
-.title{
-    color:#8e44ad;
-    font-size:38px;
-    font-weight: lighter;
-    border-bottom: #8e44ad;
-}
-.btn{
-    margin-bottom: 80px;
 
+.title {
+  color: #8e44ad;
+  font-size: 38px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
+.btn {
+  margin-bottom: 40px;
+  background-color: #6a0dad;
+  color: white;
+  padding: 12px 28px;
+  font-size: 16px;
+  border-radius: 25px;
+  border: none;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #5a0cb0;
+  transform: translateY(-3px);
+}
+
+/* Animation */
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .title {
+    font-size: 26px;
+  }
 }

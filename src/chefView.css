@@ -1,34 +1,72 @@
 .reviews-section {
-    margin-top: 20px;
+  margin-top: 20px;
+  animation: fadeUp 0.6s ease;
+}
+
+/* ===== Review Card ===== */
+.review-item {
+  margin-bottom: 15px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Reviewer Info ===== */
+.reviewer-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.reviewer-info img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.reviewer-name {
+  font-weight: bold;
+  color: #333;
+}
+
+/* ===== Comment ===== */
+.review-comment {
+  margin-bottom: 0;
+  color: #555;
+}
+
+/* ===== Add Review ===== */
+.add-review-section {
+  margin-top: 25px;
+  animation: fadeUp 0.8s ease;
+}
+
+/* ===== Animation ===== */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 480px) {
   .review-item {
-    margin-bottom: 15px;
-    padding: 10px;
-    background-color: #f8f9fa;
-    border-radius: 5px;
+    padding: 12px;
   }
-  
-  .reviewer-info {
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-  }
-  
-  .reviewer-info img {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-  }
-  
-  .reviewer-name {
-    font-weight: bold;
-  }
-  
+
   .review-comment {
-    margin-bottom: 0;
+    font-size: 14px;
   }
-  
-  .add-review-section {
-    margin-top: 20px;
-  }
+}

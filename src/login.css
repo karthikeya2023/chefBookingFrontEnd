@@ -1,32 +1,47 @@
+/* ===== Global Animations ===== */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .login-page,
 .signup-page {
   display: flex;
   height: 100vh;
   width: 100%;
+  animation: fadeSlide 0.8s ease;
 }
 
+/* ===== Left Section ===== */
 .left-section {
   flex: 1;
-  background-color: #87CEEB;
+  background: linear-gradient(135deg, #87CEEB, #6a0dad);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 2rem;
-  border-radius: 10px;
+  color: #fff;
 }
 
 .logo {
-  max-width: 200px;
+  max-width: 180px;
   margin-bottom: 2rem;
+  animation: fadeSlide 1s ease;
 }
 
 .tagline {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   text-align: center;
-  color: #ffffff;
 }
 
+/* ===== Right Section ===== */
 .right-section {
   flex: 1;
   display: flex;
@@ -40,8 +55,10 @@
   width: 100%;
   max-width: 400px;
   padding: 2rem;
+  animation: fadeSlide 0.9s ease;
 }
 
+/* ===== Headings ===== */
 h1 {
   font-size: 2rem;
   margin-bottom: 2rem;
@@ -49,13 +66,14 @@ h1 {
   color: #800080;
 }
 
+/* ===== Form ===== */
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
 }
 
 label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
   font-weight: bold;
   color: #333;
 }
@@ -64,26 +82,36 @@ input {
   width: 100%;
   padding: 0.75rem;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 1rem;
+  transition: border 0.3s, box-shadow 0.3s;
 }
 
+input:focus {
+  border-color: #6a0dad;
+  box-shadow: 0 0 6px rgba(106, 13, 173, 0.3);
+  outline: none;
+}
+
+/* ===== Button ===== */
 .submit-btn {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.8rem;
   background-color: #4CAF50;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: transform 0.3s, background-color 0.3s;
 }
 
 .submit-btn:hover {
   background-color: #45a049;
+  transform: translateY(-2px);
 }
 
+/* ===== Extra ===== */
 .error-message {
   color: red;
   margin-bottom: 1rem;
@@ -104,4 +132,26 @@ input {
 .signup-link a:hover,
 .login-link a:hover {
   text-decoration: underline;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .login-page,
+  .signup-page {
+    flex-direction: column;
+  }
+
+  .left-section {
+    height: 40vh;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+  }
 }

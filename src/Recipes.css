@@ -1,93 +1,156 @@
 .recipes-container {
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: auto;
+  padding: 40px 20px;
   font-family: Arial, sans-serif;
   background-color: #ffffff;
+  animation: fadeUp 0.8s ease;
 }
 
+/* ================= HEADER ================= */
 .recipes-header {
   color: #8e44ad;
-  font-size: 80px;
-  text-align: left;
-  font-weight: lighter;
-  margin-bottom: 20px;
-  border-image: #8e44ad;
-
+  font-size: 64px;
+  font-weight: 300;
+  margin-bottom: 50px;
 }
 
+/* ================= SHOWCASE LAYOUT ================= */
 .recipe-showcase {
   display: flex;
-  background-color: #ffffff;
-  margin-bottom: 250px;
+  gap: 60px;                 /* better spacing */
+  margin-bottom: 120px;
+  align-items: flex-start;   /* 🔥 key fix */
 }
 
+/* ================= IMAGE ================= */
 .recipe-image {
-  flex: 1;
-  padding-bottom: 25px;
-  
+  flex: 1.2;                 /* image slightly dominant */
 }
 
 .recipe-image img {
   width: 100%;
-  height: auto;
-  object-fit: cover;
-  box-shadow: 5px 5px 5px black;
+  border-radius: 20px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
-.recipe-image img:hover{
+
+.recipe-image img:hover {
   transform: scale(1.05);
 }
 
+/* ================= DETAILS ================= */
 .recipe-details {
-  flex: 1;
-  padding-left: 15px;
-  display: flex;
-  flex-direction: column;
-  height: 50px;
+  flex: 1;                   /* fills remaining space */
 }
 
+/* ================= INFO GRID ================= */
 .info-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 50px;
-  grid-area: auto;
-  background-origin: padding-box;
+  grid-template-columns: repeat(2, minmax(220px, 1fr));
+  gap: 30px;
 }
 
+/* ================= INFO CARD ================= */
 .info-item {
-  width: 200px;
-  background-origin: padding-box;
-  padding: 10px;
   background-color: #ffffff;
-  box-shadow: 10px 10px 10px;
-
+  padding: 28px 24px;
+  border-radius: 18px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  min-height: 160px;          /* 🔥 fills vertical space */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.info-item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.18);
+}
+
+/* ================= INFO TEXT ================= */
 .info-item h4 {
-  
-  text-align: center;
   color: #8e44ad;
-  padding: 20px,10px,10px,0px;
-  font-size: 16px;
+  font-size: 13px;
   text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
 }
 
 .info-item p {
-  font-size: 30px;
+  font-size: 26px;
+  font-weight: 600;
   color: #333;
+  line-height: 1.3;
 }
 
+/* ================= LINKS & EMPTY ================= */
 .no-recipes {
   text-align: center;
   color: #666;
   font-style: italic;
 }
+
 .all-recipes-link {
   display: block;
   text-align: right;
-  margin-top: 20px;
+  margin-top: 30px;
   color: #8e44ad;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease;
+}
+
+.all-recipes-link:hover {
+  transform: translateX(6px);
+}
+
+/* ================= REVIEW CARD ================= */
+.review-item {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+}
+
+/* ================= ANIMATION ================= */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .recipes-header {
+    font-size: 42px;
+  }
+
+  .recipe-showcase {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .recipes-header {
+    font-size: 32px;
+  }
+
+  .info-item p {
+    font-size: 22px;
+  }
 }
